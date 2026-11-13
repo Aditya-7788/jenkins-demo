@@ -16,6 +16,7 @@ pipeline {
         stage('Deploy') {
             // Deploy only if tests passed and branch is main
             when { branch 'main' }
+            environment { JENKINS_NODE_COOKIE = 'dontKillMe' }
             steps {
                 sh '''
                     # Copy files to app folder and restart
